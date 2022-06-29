@@ -51,17 +51,17 @@ android {
 }
 
 dependencies {
-    implementation(libs.corekts)
+    implementation(libs.core.ktx)
     implementation(libs.ui)
     implementation(libs.material)
-    implementation(libs.uitoolingpreview)
-    implementation(libs.lifecycleruntimektx)
-    implementation(libs.activitycompose)
+    implementation(libs.ui.tooling.preview)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.activity.compose)
 
     testImplementation(test.junit)
-    androidTestImplementation(test.extjunit)
-    androidTestImplementation(test.espressocore)
-    androidTestImplementation(test.uitestjunit4)
-    debugImplementation(test.uitooling)
-    debugImplementation(test.uitestmanifest)
+    androidTestImplementation(test.ext.junit)
+    androidTestImplementation(test.espresso.core)
+    androidTestImplementation(test.ui.test.junit4)
+    debugImplementation(test.ui.tooling)
+    debugImplementation(test.ui.test.manifest)
 }
