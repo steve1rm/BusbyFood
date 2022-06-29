@@ -1,0 +1,5 @@
+[versions]
+ktx = "1.8.0"
+
+[libraries]
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "ktx" }
