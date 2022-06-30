@@ -60,5 +60,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BusbyFood"
-include(":presentation", ":domain")
+include(":presentation", ":domain", ":data")
 
