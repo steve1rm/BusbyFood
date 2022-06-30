@@ -51,12 +51,9 @@ android {
 }
 
 dependencies {
-    implementation(libs.core.ktx)
-    implementation(libs.ui)
-    implementation(libs.material)
-    implementation(libs.ui.tooling.preview)
+    implementation(libs.core.kts)
     implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
+    implementation(libs.bundles.compose)
 
     testImplementation(test.junit)
     androidTestImplementation(test.ext.junit)
