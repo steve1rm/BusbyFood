@@ -26,13 +26,20 @@ dependencyResolutionManagement {
             version("compose", "1.1.0")
             version("lifecycle-runtime-ktx", "2.4.1")
             version("activity-compose", "1.4.0")
-            
+            version("kotlinx-coroutines-core", "1.6.1")
+            version("kotlin-stdlib", "1.6.21")
+            version("dagger", "2.42")
+
             library("core-kts", "androidx.core", "core-ktx").versionRef("core-kts")
             library("ui", "androidx.compose.ui", "ui").versionRef("compose")
             library("material", "androidx.compose.material", "material").versionRef("compose")
             library("ui-tooling-preview", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose")
             library("lifecycle-runtime-ktx", "androidx.lifecycle", "lifecycle-runtime-ktx").versionRef("lifecycle-runtime-ktx")
             library("activity-compose", "androidx.activity", "activity-compose").versionRef("activity-compose")
+
+            library("kotlinx-coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").versionRef("kotlinx-coroutines-core")
+            library("kotlin-stdlib","org.jetbrains.kotlin", "kotlin-stdlib").versionRef("kotlin-stdlib")
+            library("dagger", "com.google.dagger", "dagger").versionRef("dagger")
 
             bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose"))
         }
@@ -53,5 +60,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BusbyFood"
-include(":presentation")
+include(":presentation", ":domain")
 
