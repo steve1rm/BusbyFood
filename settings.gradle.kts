@@ -29,8 +29,11 @@ dependencyResolutionManagement {
             version("kotlinx-coroutines-core", "1.6.1")
             version("kotlin-stdlib", "1.6.21")
             version("dagger", "2.42")
+            version("room","2.4.2")
+            version("datastore-preferences", "1.0.0")
 
             library("core-kts", "androidx.core", "core-ktx").versionRef("core-kts")
+
             library("ui", "androidx.compose.ui", "ui").versionRef("compose")
             library("material", "androidx.compose.material", "material").versionRef("compose")
             library("ui-tooling-preview", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose")
@@ -39,9 +42,20 @@ dependencyResolutionManagement {
 
             library("kotlinx-coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").versionRef("kotlinx-coroutines-core")
             library("kotlin-stdlib","org.jetbrains.kotlin", "kotlin-stdlib").versionRef("kotlin-stdlib")
+
             library("dagger", "com.google.dagger", "dagger").versionRef("dagger")
+            library("hilt-android","com.google.dagger", "hilt-android").versionRef("dagger")
+            library("hilt-android-compiler","com.google.dagger", "hilt-android-compiler").versionRef("dagger")
+
+            library("room-runtime", "androidx.room", "room-runtime").versionRef("room")
+            library("room-compiler","androidx.room", "room-compiler").versionRef("room")
+            library("room-ktx","androidx.room","room-ktx").versionRef("room")
+
+            library("datastore-preferences","androidx.datastore", "datastore-preferences").versionRef("datastore-preferences")
 
             bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose"))
+            bundle("dagger", listOf("dagger", "hilt-android", "hilt-android-compiler"))
+            bundle("room", listOf("room-runtime", "room-compiler", "room-ktx"))
         }
 
         create("test") {
