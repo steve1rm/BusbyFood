@@ -6,9 +6,9 @@ buildscript {
     }
 
     dependencies {
-        classpath(Android.tools.build.gradlePlugin)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:_")
-        classpath(Google.dagger.hilt.android.gradlePlugin)
+        classpath("com.android.tools.build:gradle:${plugins.versions.plugin.android.get()}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${libs.versions.version.kotlin.get()}")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${libs.versions.version.google.dagger.get()}")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

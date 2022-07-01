@@ -73,6 +73,10 @@ dependencyResolutionManagement {
             library("ui-tooling", "androidx.compose.ui", "ui-tooling").versionRef("version.androidx.compose.ui")
             library("ui-test-manifest", "androidx.compose.ui", "ui-test-manifest").versionRef("version.androidx.compose.ui")
         }
+
+        create("plugins") {
+            version("plugin.android", "_")
+        }
     }
 }
 rootProject.name = "BusbyFood"
