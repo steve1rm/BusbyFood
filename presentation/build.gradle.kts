@@ -17,6 +17,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val properties = org.jetbrains.kotlin.konan.properties.Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        buildConfigField("String", "API", "\"${properties.getProperty("API_KEY")}\"")
     }
 
     buildTypes {
