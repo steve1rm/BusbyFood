@@ -62,6 +62,9 @@ fun MutableVersionCatalogContainer.createLibs() {
         version("version.androidx.room","_")
         version("version.androidx.datastore", "_")
         version("version.retrofit2", "_")
+        version("version.androidx.hilt", "_")
+        version("version.retrofit2-kotlin-coroutines-adapter", "_")
+        version("version.okhttp3", "_")
 
         library("core-kts", "androidx.core", "core-ktx").versionRef("version.androidx.core")
 
@@ -77,6 +80,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("dagger", "com.google.dagger", "dagger").versionRef("version.google.dagger")
         library("hilt-android","com.google.dagger", "hilt-android").versionRef("version.google.dagger")
         library("hilt-android-compiler","com.google.dagger", "hilt-android-compiler").versionRef("version.google.dagger")
+        library("hilt-compiler","androidx.hilt", "hilt-compiler").versionRef("version.androidx.hilt")
 
         library("room-runtime", "androidx.room", "room-runtime").versionRef("version.androidx.room")
         library("room-compiler","androidx.room", "room-compiler").versionRef("version.androidx.room")
@@ -85,6 +89,9 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("datastore-preferences","androidx.datastore", "datastore-preferences").versionRef("version.androidx.datastore")
 
         library("retrofit", "com.squareup.retrofit2", "retrofit").versionRef("version.retrofit2")
+        library("retrofit2-kotlin-coroutines-adapter", "com.jakewharton.retrofit", "retrofit2-kotlin-coroutines-adapter").versionRef("version.retrofit2-kotlin-coroutines-adapter")
+        library("converter-moshi", "com.squareup.retrofit2", "converter-moshi").versionRef("version.retrofit2")
+        library("logging-interceptor", "com.squareup.okhttp3", "logging-interceptor").versionRef("version.okhttp3")
 
         bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose"))
         bundle("dagger", listOf("dagger", "hilt-android", "hilt-android-compiler"))

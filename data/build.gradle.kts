@@ -25,6 +25,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+
     api(libs.room.runtime)
     kapt(libs.room.compiler)
     implementation(libs.room.ktx)
@@ -32,6 +34,9 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.retrofit)
+    implementation(libs.retrofit2.kotlin.coroutines.adapter)
+    implementation(libs.converter.moshi)
+    implementation(libs.logging.interceptor)
 
     testImplementation(test.junit)
 }

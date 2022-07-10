@@ -3,6 +3,7 @@ package me.androidbox.busbyfood
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,13 +26,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import me.androidbox.busbyfood.ui.theme.BusbyFoodTheme
+import me.androidbox.busbyfood.viewmodel.FoodListViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
+            val foodListViewModel by viewModels<FoodListViewModel>()
+
+            foodListViewModel.fetchComplexSearch()
+
             Box(modifier = Modifier
                 .fillMaxWidth(0.5f)
                 .padding(16.dp)) {
