@@ -7,7 +7,7 @@ import me.androidbox.domain.usecase.FetchComplexSearchUseCase
 import javax.inject.Inject
 
 class FetchComplexSearchUseCaseImp @Inject constructor(private val foodRemote: FoodRemote) : FetchComplexSearchUseCase {
-    override fun execute(apiKey: String): Flow<List<ComplexSearchEntity>> {
-        return foodRemote.complexSearch(apiKey)
+    override fun execute(): Flow<List<ComplexSearchEntity>> {
+        return foodRemote.complexSearch()
     }
 }

@@ -19,13 +19,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        val properties = org.jetbrains.kotlin.konan.properties.Properties()
-        properties.load(project.rootProject.file("local.properties").inputStream())
-        buildConfigField("String", "API", "\"${properties.getProperty("API_KEY")}\"")
-
-        buildConfigField("String", "ENDPOINT", "\"https://staging-datalake-api.tops.co.th/\"")
-        buildConfigField("String", "DOLFIN_PAYMENT_STORE_KEY", "\"default\"")
     }
 
     buildTypes {
@@ -70,6 +63,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     kapt(libs.hilt.compiler)
+    implementation(libs.coil.compose)
 
     testImplementation(test.junit)
     androidTestImplementation(test.ext.junit)

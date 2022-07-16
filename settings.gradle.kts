@@ -65,6 +65,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         version("version.androidx.hilt", "_")
         version("version.retrofit2-kotlin-coroutines-adapter", "_")
         version("version.okhttp3", "_")
+        version("version.coil-kt", "_")
 
         library("core-kts", "androidx.core", "core-ktx").versionRef("version.androidx.core")
 
@@ -92,6 +93,8 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("retrofit2-kotlin-coroutines-adapter", "com.jakewharton.retrofit", "retrofit2-kotlin-coroutines-adapter").versionRef("version.retrofit2-kotlin-coroutines-adapter")
         library("converter-moshi", "com.squareup.retrofit2", "converter-moshi").versionRef("version.retrofit2")
         library("logging-interceptor", "com.squareup.okhttp3", "logging-interceptor").versionRef("version.okhttp3")
+
+        library("coil-compose", "io.coil-kt", "coil-compose").versionRef("version.coil-kt")
 
         bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose"))
         bundle("dagger", listOf("dagger", "hilt-android", "hilt-android-compiler"))

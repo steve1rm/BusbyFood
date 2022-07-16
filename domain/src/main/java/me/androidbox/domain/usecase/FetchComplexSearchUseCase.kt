@@ -4,5 +4,5 @@ import kotlinx.coroutines.flow.Flow
 import me.androidbox.domain.entity.ComplexSearchEntity
 
 interface FetchComplexSearchUseCase {
-    fun execute(apiKey: String): Flow<List<ComplexSearchEntity>>
+    fun execute(): Flow<List<ComplexSearchEntity>>
 }
