@@ -10,11 +10,13 @@ import kotlinx.coroutines.launch
 import me.androidbox.busbyfood.BuildConfig
 import me.androidbox.domain.entity.ComplexSearchEntity
 import me.androidbox.domain.usecase.FetchComplexSearchUseCase
+import me.androidbox.domain.usecase.InsertComplexSearchUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class FoodListViewModel @Inject constructor(
-    private val fetchComplexSearchUseCase: FetchComplexSearchUseCase
+    private val fetchComplexSearchUseCase: FetchComplexSearchUseCase,
+    private val insertComplexSearchUseCase: InsertComplexSearchUseCase
 ) : ViewModel() {
 
     private val complexSearchMutableStateFlow = MutableStateFlow<List<ComplexSearchEntity>>(emptyList())
@@ -27,6 +29,12 @@ class FoodListViewModel @Inject constructor(
                     listOfComplexSearchEntity
                 }
             }
+        }
+    }
+
+    fun insertComplexSearchToLocalStorage(listOfComplexSearchEntity: List<ComplexSearchEntity>) {
+        viewModelScope.launch {
+            insertComplexSearchUseCase.execute(listOfComplexSearchEntity)
         }
     }
 }

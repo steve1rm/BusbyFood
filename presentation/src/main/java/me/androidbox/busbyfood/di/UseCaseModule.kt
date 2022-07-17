@@ -6,7 +6,9 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.androidbox.domain.usecase.FetchComplexSearchUseCase
+import me.androidbox.domain.usecase.InsertComplexSearchUseCase
 import me.androidbox.domain.usecase.imp.FetchComplexSearchUseCaseImp
+import me.androidbox.domain.usecase.imp.InsertComplexSearchUseCaseImp
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -15,4 +17,8 @@ interface UseCaseModule {
     @Reusable
     @Binds
     fun bindsFetchComplexSearchUseCase(fetchComplexSearchUseCaseImp: FetchComplexSearchUseCaseImp): FetchComplexSearchUseCase
+
+    @Reusable
+    @Binds
+    fun bindsInsertComplexSearchUseCase(insertComplexSearchUseCaseImp: InsertComplexSearchUseCaseImp): InsertComplexSearchUseCase
 }

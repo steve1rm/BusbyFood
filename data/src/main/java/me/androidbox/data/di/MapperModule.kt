@@ -4,10 +4,12 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import me.androidbox.data.localstorage.ComplexSearchLocalModel
 import me.androidbox.data.mapper.MapperDataToDomain
 import me.androidbox.data.mapper.MapperDomainToData
 import me.androidbox.data.mapper.imp.MapperDataToDomainImp
 import me.androidbox.data.mapper.imp.MapperDomainToDataImp
+import me.androidbox.data.mapper.imp.MapperLocalDomainToDataImp
 import me.androidbox.data.model.ComplexSearchModel
 import me.androidbox.domain.entity.ComplexSearchEntity
 
@@ -20,4 +22,7 @@ interface MapperModule {
 
     @Binds
     fun bindsMapperDataToDomain(mapperDataToDomainImp: MapperDataToDomainImp): MapperDataToDomain<ComplexSearchModel, ComplexSearchEntity>
+
+    @Binds
+    fun bindsMapperLocalDomainToData(mapperLocalDomainToDataImp: MapperLocalDomainToDataImp): MapperDomainToData<ComplexSearchEntity, ComplexSearchLocalModel>
 }

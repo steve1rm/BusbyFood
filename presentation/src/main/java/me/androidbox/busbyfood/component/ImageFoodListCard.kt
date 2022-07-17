@@ -21,7 +21,7 @@ import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 
 @Composable
-fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: String, shouldDisplayGradient: Boolean = false) {
+fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: String, shouldDisplayGradient: Boolean = true) {
     Card(
         modifier = Modifier.fillMaxWidth().padding(4.dp),
         shape = RoundedCornerShape(8.dp),
@@ -63,7 +63,7 @@ fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: Strin
                 Text(
                     text = title,
                     color = Color.White,
-                    fontSize = 16.sp,
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Thin
                 )
             }

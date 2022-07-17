@@ -31,15 +31,17 @@ class ListFoodActivity : ComponentActivity() {
 
         val foodListViewModel by viewModels<FoodListViewModel>()
 
-        foodListViewModel.fetchComplexSearch()
-
         lifecycleScope.launch {
+            foodListViewModel.fetchComplexSearch()
+
             foodListViewModel.complexSearchStateFlow.collect { listOfComplexSearch ->
-                println(listOfComplexSearch.count())
+                if(listOfComplexSearch.isNotEmpty()) {
+                    foodListViewModel.insertComplexSearchToLocalStorage(listOfComplexSearch)
+                }
 
                 setContent {
                     Scaffold(modifier = Modifier.fillMaxSize()) {
-                        Column() {
+                        Column {
                             TopAppBar {
                                 Text(text = "Busby Food", color = Color.White, fontSize = 24.sp, fontFamily = FontFamily.Serif)
                             }
@@ -58,7 +60,7 @@ class ListFoodActivity : ComponentActivity() {
                                         title = complexSearchEntity.title
                                     )
 
-                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Spacer(modifier = Modifier.height(2.dp))
                                 }
                             }
                         }
