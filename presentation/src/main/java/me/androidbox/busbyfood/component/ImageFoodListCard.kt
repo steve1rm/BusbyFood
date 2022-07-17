@@ -54,7 +54,7 @@ fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: Strin
                         )
                 )
             }
-            
+
             Box(modifier = Modifier
                 .fillMaxSize()
                 .padding(start = 8.dp, bottom = 4.dp),
