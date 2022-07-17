@@ -21,10 +21,10 @@ import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 
 @Composable
-fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: String) {
+fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: String, shouldDisplayGradient: Boolean = false) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.fillMaxWidth().padding(4.dp),
+        shape = RoundedCornerShape(8.dp),
         elevation = 6.dp) {
 
         Box(modifier = Modifier.height(200.dp)) {
@@ -42,19 +42,22 @@ fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: Strin
             )
 
             /* Gradient so the text can be shown at the bottom */
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        brush = Brush.verticalGradient(
-                            listOf(Color.Transparent, Color.DarkGray),
-                            startY = 100F
+            if(shouldDisplayGradient) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            brush = Brush.verticalGradient(
+                                listOf(Color.Transparent, Color.DarkGray),
+                                startY = 80F
+                            )
                         )
-                    ))
-
+                )
+            }
+            
             Box(modifier = Modifier
                 .fillMaxSize()
-                .padding(12.dp),
+                .padding(start = 8.dp, bottom = 4.dp),
                 contentAlignment = Alignment.BottomStart
             ) {
                 Text(
