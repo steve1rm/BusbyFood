@@ -24,6 +24,10 @@ class FoodListViewModel @Inject constructor(
 
     fun fetchComplexSearch() {
         viewModelScope.launch {
+            complexSearchMutableStateFlow.update {
+                ResponseState.Loading
+            }
+
             fetchComplexSearchUseCase.execute().collect { responseState ->
                 complexSearchMutableStateFlow.update { _ ->
                     responseState

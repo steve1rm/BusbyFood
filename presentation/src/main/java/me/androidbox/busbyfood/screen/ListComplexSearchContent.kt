@@ -12,6 +12,9 @@ fun ListComplexSearchContent(
 ) {
 
     when(responseState) {
+        is ResponseState.Loading -> {
+            LoadingContent()
+        }
         is ResponseState.Success -> {
             DisplayContent(listOfComplexSearchEntity = responseState.data, navController = navController)
         }
