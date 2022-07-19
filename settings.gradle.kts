@@ -66,6 +66,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         version("version.retrofit2-kotlin-coroutines-adapter", "_")
         version("version.okhttp3", "_")
         version("version.coil-kt", "_")
+        version("version.androidx.core-splashscreen", "_")
 
         library("core-kts", "androidx.core", "core-ktx").versionRef("version.androidx.core")
 
@@ -74,6 +75,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("ui-tooling-preview", "androidx.compose.ui", "ui-tooling-preview").versionRef("version.androidx.compose.ui")
         library("lifecycle-runtime-ktx", "androidx.lifecycle", "lifecycle-runtime-ktx").versionRef("version.androidx.lifecycle")
         library("activity-compose", "androidx.activity", "activity-compose").versionRef("version.androidx.activity")
+        library("core-splashscreen","androidx.core", "core-splashscreen").versionRef("version.androidx.core-splashscreen")
 
         library("kotlinx-coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").versionRef("version.kotlinx.coroutines")
         library("kotlin-stdlib","org.jetbrains.kotlin", "kotlin-stdlib").versionRef("version.kotlin")

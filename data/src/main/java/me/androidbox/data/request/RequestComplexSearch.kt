@@ -8,6 +8,7 @@ import me.androidbox.data.model.ComplexSearchModel
 import me.androidbox.data.network.FoodService
 import me.androidbox.domain.entity.ComplexSearchEntity
 import me.androidbox.domain.remote.FoodRemote
+import me.androidbox.domain.responsestate.ResponseState
 import javax.inject.Inject
 
 class RequestComplexSearch @Inject constructor(
@@ -15,15 +16,20 @@ class RequestComplexSearch @Inject constructor(
     private val mapperDataToDomain: MapperDataToDomain<@JvmSuppressWildcards ComplexSearchModel, @JvmSuppressWildcards ComplexSearchEntity>)
     : FoodRemote {
 
-    override fun complexSearch(): Flow<List<ComplexSearchEntity>> {
+    override fun complexSearch(): Flow<ResponseState<List<ComplexSearchEntity>>> {
         return flow {
-            val resultModel = foodService.fetchComplexSearch(BuildConfig.API)
+            try {
+                val resultModel = foodService.fetchComplexSearch(BuildConfig.API)
 
-            val listOfComplexSearchEntity = resultModel.results.map { complexSearchModel ->
-                mapperDataToDomain.map(complexSearchModel)
+                val listOfComplexSearchEntity = resultModel.results.map { complexSearchModel ->
+                    mapperDataToDomain.map(complexSearchModel)
+                }
+
+                emit(ResponseState.Success(listOfComplexSearchEntity))
             }
-
-            emit(listOfComplexSearchEntity)
+            catch (e: Exception) {
+                emit(ResponseState.Failure(e))
+            }
         }
     }
 }

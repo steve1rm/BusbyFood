@@ -21,7 +21,7 @@ import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 
 @Composable
-fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: String, shouldDisplayGradient: Boolean = true) {
+fun ImageFoodListCard(imageUrl: String, title: String, shouldDisplayGradient: Boolean = true) {
     Card(
         modifier = Modifier.fillMaxWidth().padding(4.dp),
         shape = RoundedCornerShape(8.dp),
@@ -37,7 +37,7 @@ fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: Strin
                 loading = {
                     CircularProgressIndicator()
                 },
-                contentDescription = contentDescription,
+                contentDescription = "Display picture of food item",
                 contentScale = ContentScale.Crop
             )
 
@@ -49,7 +49,7 @@ fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: Strin
                         .background(
                             brush = Brush.verticalGradient(
                                 listOf(Color.Transparent, Color.DarkGray),
-                                startY = 80F
+                                startY = 380F
                             )
                         )
                 )
@@ -75,8 +75,7 @@ fun ImageFoodListCard(imageUrl: String, contentDescription: String, title: Strin
 @Composable
 fun PreviewImageFoodListCard() {
     ImageFoodListCard(
-        imageUrl = "",
-        contentDescription = "Display the image of food",
+        imageUrl = "https://spoonacular.com/recipeImages/715446-312x231.jpg",
         title = "Cauliflower, Brown Rice, and Vegetable Fried Rice",
     )
 }

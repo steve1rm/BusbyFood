@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import me.androidbox.busbyfood.BuildConfig
 import me.androidbox.domain.entity.ComplexSearchEntity
+import me.androidbox.domain.responsestate.ResponseState
 import me.androidbox.domain.usecase.FetchComplexSearchUseCase
 import me.androidbox.domain.usecase.InsertComplexSearchUseCase
 import javax.inject.Inject
@@ -19,14 +19,14 @@ class FoodListViewModel @Inject constructor(
     private val insertComplexSearchUseCase: InsertComplexSearchUseCase
 ) : ViewModel() {
 
-    private val complexSearchMutableStateFlow = MutableStateFlow<List<ComplexSearchEntity>>(emptyList())
+    private val complexSearchMutableStateFlow = MutableStateFlow<ResponseState<List<ComplexSearchEntity>>>(ResponseState.idle)
     val complexSearchStateFlow = complexSearchMutableStateFlow.asStateFlow()
 
     fun fetchComplexSearch() {
         viewModelScope.launch {
-            fetchComplexSearchUseCase.execute().collect { listOfComplexSearchEntity ->
-                complexSearchMutableStateFlow.update {
-                    listOfComplexSearchEntity
+            fetchComplexSearchUseCase.execute().collect { responseState ->
+                complexSearchMutableStateFlow.update { _ ->
+                    responseState
                 }
             }
         }
