@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,14 +18,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
+import me.androidbox.busbyfood.navigation.Screen
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ImageFoodListCard(imageUrl: String, title: String, shouldDisplayGradient: Boolean = true) {
+fun ImageFoodListCard(imageUrl: String, title: String, shouldDisplayGradient: Boolean = true, navController: NavController) {
     Card(
         modifier = Modifier.fillMaxWidth().padding(4.dp),
         shape = RoundedCornerShape(8.dp),
+        onClick = { navController.navigate(Screen.ComplexSearchDetailScreen.withArguments(title))},
         elevation = 6.dp) {
 
         Box(modifier = Modifier.height(200.dp)) {
@@ -77,5 +82,6 @@ fun PreviewImageFoodListCard() {
     ImageFoodListCard(
         imageUrl = "https://spoonacular.com/recipeImages/715446-312x231.jpg",
         title = "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+        navController = NavController(LocalContext.current)
     )
 }
