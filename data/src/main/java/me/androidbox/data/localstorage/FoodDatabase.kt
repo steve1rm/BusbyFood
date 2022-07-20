@@ -12,5 +12,5 @@ import me.androidbox.data.model.ComplexSearchRemoteKey
     ComplexSearchRemoteKey::class], version = 1, exportSchema = false)
 abstract class FoodDatabase: RoomDatabase() {
     abstract fun foodDao(): FoodDao
-    abstract fun complexSearchRemoteKey(): ComplexSearchRemoteKeyDao
+    abstract fun complexSearchRemoteKeyDao(): ComplexSearchRemoteKeyDao
 }

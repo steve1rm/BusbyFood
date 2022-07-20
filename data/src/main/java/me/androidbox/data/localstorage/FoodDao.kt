@@ -15,7 +15,7 @@ interface FoodDao {
     suspend fun insert(complexSearchLocalModel: ComplexSearchLocalModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertPaging(complexSearchModel: ComplexSearchModel)
+    suspend fun insertAll(complexSearchModel: List<ComplexSearchModel>)
 
     @Query("SELECT * FROM complex_search_local_table")
     fun fetchAllComplexSearch(): Flow<List<ComplexSearchLocalModel>>
