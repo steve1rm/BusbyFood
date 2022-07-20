@@ -3,8 +3,9 @@ package me.androidbox.data.localstorage
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import me.androidbox.data.utils.Constant
 
-@Entity(tableName = "ComplexSearchLocalModel")
+@Entity(tableName = Constant.COMPLEX_SEARCH_LOCAL_TABLE)
 data class ComplexSearchLocalModel(
     @PrimaryKey
     val id: Int,

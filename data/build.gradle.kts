@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.retrofit2.kotlin.coroutines.adapter)
     implementation(libs.converter.moshi)
     implementation(libs.logging.interceptor)
+    implementation(libs.paging.compose)
+    implementation(libs.room.paging)
 
     testImplementation(test.junit)
 }
