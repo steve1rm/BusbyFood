@@ -19,7 +19,8 @@ interface DatabaseModule {
         @Provides
         @Singleton
         fun provideRoomDatabase(@ApplicationContext context: Context): FoodDatabase {
-            return Room.databaseBuilder(context, FoodDatabase::class.java, Constant.DATABASE_NAME)
+            return Room
+                .databaseBuilder(context, FoodDatabase::class.java, Constant.DATABASE_NAME)
                 .build()
         }
 

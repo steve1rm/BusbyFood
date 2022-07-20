@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+import me.androidbox.data.model.ComplexSearchLocalModel
 import me.androidbox.data.model.ComplexSearchModel
 
 @Dao

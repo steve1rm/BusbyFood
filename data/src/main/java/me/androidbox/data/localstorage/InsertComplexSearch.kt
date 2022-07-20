@@ -1,6 +1,7 @@
 package me.androidbox.data.localstorage
 
 import me.androidbox.data.mapper.MapperDomainToData
+import me.androidbox.data.model.ComplexSearchLocalModel
 import me.androidbox.domain.entity.ComplexSearchEntity
 import me.androidbox.domain.local.FoodLocal
 import javax.inject.Inject

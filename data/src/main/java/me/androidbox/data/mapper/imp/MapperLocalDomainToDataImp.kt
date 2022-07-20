@@ -1,6 +1,6 @@
 package me.androidbox.data.mapper.imp
 
-import me.androidbox.data.localstorage.ComplexSearchLocalModel
+import me.androidbox.data.model.ComplexSearchLocalModel
 import me.androidbox.data.mapper.MapperDomainToData
 import me.androidbox.domain.entity.ComplexSearchEntity
 import javax.inject.Inject
