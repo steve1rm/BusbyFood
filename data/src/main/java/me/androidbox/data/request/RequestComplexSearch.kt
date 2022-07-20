@@ -19,7 +19,7 @@ class RequestComplexSearch @Inject constructor(
     override fun complexSearch(): Flow<ResponseState<List<ComplexSearchEntity>>> {
         return flow {
             try {
-                val resultModel = foodService.fetchComplexSearch(BuildConfig.API)
+                val resultModel = foodService.fetchComplexSearch(BuildConfig.API, 20)
 
                 val listOfComplexSearchEntity = resultModel.results.map { complexSearchModel ->
                     mapperDataToDomain.map(complexSearchModel)

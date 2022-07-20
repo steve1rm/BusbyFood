@@ -6,5 +6,7 @@ import retrofit2.http.Query
 
 interface FoodService {
     @GET(EndPoint.COMPLEX_SEARCH)
-    suspend fun fetchComplexSearch(@Query("apiKey") apiKey: String): ResultModel
+    suspend fun fetchComplexSearch(
+        @Query("apiKey") apiKey: String,
+        @Query("offset") offset: Int): ResultModel
 }

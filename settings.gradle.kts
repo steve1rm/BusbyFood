@@ -77,6 +77,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("activity-compose", "androidx.activity", "activity-compose").versionRef("version.androidx.activity")
         library("core-splashscreen","androidx.core", "core-splashscreen").versionRef("version.androidx.core-splashscreen")
         library("navigation-compose","androidx.navigation", "navigation-compose").versionRef("version.androidx.navigation-compose")
+        library("paging-compose", "androidx.paging", "paging-compose").versionRef("version.androidx.compose.ui")
 
         library("kotlinx-coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").versionRef("version.kotlinx.coroutines")
         library("kotlin-stdlib","org.jetbrains.kotlin", "kotlin-stdlib").versionRef("version.kotlin")
@@ -89,6 +90,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("room-runtime", "androidx.room", "room-runtime").versionRef("version.androidx.room")
         library("room-compiler","androidx.room", "room-compiler").versionRef("version.androidx.room")
         library("room-ktx","androidx.room","room-ktx").versionRef("version.androidx.room")
+        library("room-paging", "androidx.room", "room-paging").versionRef("version.androidx.room")
 
         library("datastore-preferences","androidx.datastore", "datastore-preferences").versionRef("version.androidx.datastore")
 
@@ -99,7 +101,7 @@ fun MutableVersionCatalogContainer.createLibs() {
 
         library("coil-compose", "io.coil-kt", "coil-compose").versionRef("version.coil-kt")
 
-        bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose", "navigation-compose"))
+        bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose", "navigation-compose", "paging-compose"))
         bundle("dagger", listOf("dagger", "hilt-android", "hilt-android-compiler"))
         bundle("room", listOf("room-runtime", "room-compiler", "room-ktx"))
     }
