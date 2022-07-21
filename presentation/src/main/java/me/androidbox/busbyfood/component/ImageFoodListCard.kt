@@ -1,5 +1,6 @@
 package me.androidbox.busbyfood.component
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -25,7 +26,13 @@ import me.androidbox.busbyfood.navigation.Screen
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun ImageFoodListCard(imageUrl: String, title: String, shouldDisplayGradient: Boolean = true, navController: NavController) {
+fun ImageFoodListCard(
+    imageUrl: String,
+    title: String,
+    shouldDisplayGradient: Boolean = true,
+    navController: NavController,
+    context: Context
+) {
     Card(
         modifier = Modifier.fillMaxWidth().padding(4.dp),
         shape = RoundedCornerShape(8.dp),
@@ -35,7 +42,7 @@ fun ImageFoodListCard(imageUrl: String, title: String, shouldDisplayGradient: Bo
         Box(modifier = Modifier.height(200.dp)) {
             SubcomposeAsyncImage(
                 modifier = Modifier.fillMaxSize(),
-                model = ImageRequest.Builder(LocalContext.current)
+                model = ImageRequest.Builder(context)
                     .data(imageUrl)
                     .crossfade(true)
                     .build(),
@@ -82,6 +89,7 @@ fun PreviewImageFoodListCard() {
     ImageFoodListCard(
         imageUrl = "https://spoonacular.com/recipeImages/715446-312x231.jpg",
         title = "Cauliflower, Brown Rice, and Vegetable Fried Rice",
-        navController = NavController(LocalContext.current)
+        navController = NavController(LocalContext.current),
+        context = LocalContext.current
     )
 }

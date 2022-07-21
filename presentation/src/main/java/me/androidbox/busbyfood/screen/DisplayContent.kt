@@ -21,7 +21,8 @@ fun DisplayContent(listOfComplexSearchEntity: List<ComplexSearchEntity>, navCont
             ImageFoodListCard(
                 imageUrl = complexSearchEntity.image,
                 title = complexSearchEntity.title,
-                navController = navController
+                navController = navController,
+                context = LocalContext.current
             )
         }
     }
