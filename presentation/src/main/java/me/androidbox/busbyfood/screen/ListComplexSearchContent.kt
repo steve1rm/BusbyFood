@@ -1,5 +1,6 @@
 package me.androidbox.busbyfood.screen
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.paging.compose.LazyPagingItems
@@ -12,6 +13,8 @@ fun ListComplexSearchContent(
     lazyPagingItem: LazyPagingItems<ComplexSearchEntity>,
     navController: NavController
 ) {
+
+    Log.d("LOADSTATE", "${lazyPagingItem.loadState}")
 
     DisplayContentPaging(listOfComplexSearchEntity = lazyPagingItem, navController = navController)
 
