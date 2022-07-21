@@ -68,6 +68,8 @@ fun MutableVersionCatalogContainer.createLibs() {
         version("version.coil-kt", "_")
         version("version.androidx.core-splashscreen", "_")
         version("version.androidx.navigation-compose", "_")
+        version("version.androidx.paging", "_")
+
         library("core-kts", "androidx.core", "core-ktx").versionRef("version.androidx.core")
 
         library("ui", "androidx.compose.ui", "ui").versionRef("version.androidx.compose.ui")
@@ -78,6 +80,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("core-splashscreen","androidx.core", "core-splashscreen").versionRef("version.androidx.core-splashscreen")
         library("navigation-compose","androidx.navigation", "navigation-compose").versionRef("version.androidx.navigation-compose")
         library("paging-compose", "androidx.paging", "paging-compose").versionRef("version.androidx.compose.ui")
+        library("paging-common","androidx.paging", "paging-common").versionRef("version.androidx.paging")
 
         library("kotlinx-coroutines-core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core").versionRef("version.kotlinx.coroutines")
         library("kotlin-stdlib","org.jetbrains.kotlin", "kotlin-stdlib").versionRef("version.kotlin")

@@ -7,6 +7,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlin.stdlib)
     implementation(libs.dagger)
+    implementation(libs.paging.common)
 
     testImplementation(test.junit)
 }
