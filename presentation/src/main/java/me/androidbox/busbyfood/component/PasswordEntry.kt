@@ -20,12 +20,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import me.androidbox.busbyfood.R
 
 @Composable
-fun PasswordEntry(shouldShowLabel: Boolean = true) {
+fun PasswordEntry(shouldShowLabel: Boolean = false) {
 
     var passwordText by rememberSaveable { mutableStateOf("") }
     var isPasswordVisibility by rememberSaveable { mutableStateOf(false ) }
 
-    val icon = if(isPasswordVisibility) {
+    val icon = if (isPasswordVisibility) {
         painterResource(id = R.drawable.ic_visibility_off)
     }
     else {
@@ -34,6 +34,7 @@ fun PasswordEntry(shouldShowLabel: Boolean = true) {
 
     OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
+        singleLine = true,
         value = passwordText,
         label = {
             if (shouldShowLabel) {
@@ -53,7 +54,7 @@ fun PasswordEntry(shouldShowLabel: Boolean = true) {
                 Icon(painter = icon, contentDescription = "icon")
             }
         },
-        visualTransformation = if(isPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
+        visualTransformation = if (isPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
     )
 }
