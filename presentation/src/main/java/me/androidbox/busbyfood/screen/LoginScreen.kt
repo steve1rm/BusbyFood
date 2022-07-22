@@ -1,9 +1,9 @@
 package me.androidbox.busbyfood.screen
 
-import android.widget.ImageButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,6 +12,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,6 +23,7 @@ import me.androidbox.busbyfood.component.EmailEntry
 import me.androidbox.busbyfood.component.ForgotPasswordLink
 import me.androidbox.busbyfood.component.LoginButton
 import me.androidbox.busbyfood.component.PasswordEntry
+import me.androidbox.busbyfood.R
 
 @Composable
 fun LoginScreen() {
@@ -64,9 +67,12 @@ fun LoginScreen() {
 
         Row(modifier = Modifier.fillMaxWidth()) {
 
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
 
+            }) {
+                Icon(painter = painterResource(id = R.drawable.ic_apple_logo), contentDescription = "Apple logo")
             }
+
             Button(onClick = { /*TODO*/ }) {
 
             }
