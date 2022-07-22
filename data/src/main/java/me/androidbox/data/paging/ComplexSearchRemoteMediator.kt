@@ -45,7 +45,8 @@ class ComplexSearchRemoteMediator @Inject constructor(
                 LoadType.APPEND -> {
                     val remoteKey = getRemoteKeyForLastItem(state)
                     val nextPage = remoteKey?.nextPage
-                        ?: return MediatorResult.Success(endOfPaginationReached = remoteKey != null)
+                        ?: return MediatorResult.Success(
+                            endOfPaginationReached = remoteKey != null)
 
                     nextPage
                 }
@@ -55,7 +56,7 @@ class ComplexSearchRemoteMediator @Inject constructor(
             val endOfPaginationReached = response.results.isEmpty()
 
             val previousPage = if (currentPage == 1) null else currentPage - 1
-            val nextPage = if (endOfPaginationReached) null else currentPage
+            val nextPage = if (endOfPaginationReached) null else currentPage + 1
 
             foodDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
@@ -100,9 +101,8 @@ class ComplexSearchRemoteMediator @Inject constructor(
     }
 
     private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, ComplexSearchModel>): ComplexSearchRemoteKey? {
-        return state.pages.lastOrNull { page -> page.data.isNotEmpty() }
-            ?.data?.lastOrNull()?.let { complexSearchModel ->
-            complexSearchRemoteKeyDao.getComplexSearchRemoteKey(id = complexSearchModel.id)
+        return state.lastItemOrNull()?.let { complexSearchModel ->
+            complexSearchRemoteKeyDao.getComplexSearchRemoteKey(complexSearchModel.id)
         }
     }
 }
