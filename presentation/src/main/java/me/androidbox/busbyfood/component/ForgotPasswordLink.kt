@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,7 +20,12 @@ fun ForgotPasswordLink() {
         modifier = Modifier.fillMaxWidth(),
         text = AnnotatedString(
             text = "Forgot your password?",
-            spanStyle = SpanStyle(color = Color.Red, textDecoration = TextDecoration.Underline, fontSize = 16.sp),
+            spanStyle = SpanStyle(
+                color = Color.Black,
+                fontWeight = FontWeight.Light,
+                textDecoration = TextDecoration.Underline,
+                fontSize = 16.sp
+            ),
             paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center)
         ),
         onClick = {
