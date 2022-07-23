@@ -1,5 +1,6 @@
 package me.androidbox.busbyfood.component
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
@@ -16,7 +17,9 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import me.androidbox.busbyfood.R
 
 @Composable
@@ -32,31 +35,35 @@ fun PasswordEntry(shouldShowLabel: Boolean = false) {
         painterResource(id = R.drawable.ic_visibility)
     }
 
-    OutlinedTextField(
-        modifier = Modifier.fillMaxWidth(),
-        singleLine = true,
-        value = passwordText,
-        label = {
-            if (shouldShowLabel) {
-                Text(text = "Password")
-            }
-        },
-        placeholder = {
-            Text(text = "Enter Password")
-        },
-        onValueChange = { newText ->
-            passwordText = newText
-        },
-        trailingIcon = {
-            IconButton(onClick = {
-                isPasswordVisibility = !isPasswordVisibility
-            }) {
-                Icon(painter = icon, contentDescription = "icon")
-            }
-        },
-        visualTransformation = if (isPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
-    )
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(text = "Password *", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            value = passwordText,
+            label = {
+                if (shouldShowLabel) {
+                    Text(text = "Password")
+                }
+            },
+            placeholder = {
+                Text(text = "Enter Password")
+            },
+            onValueChange = { newText ->
+                passwordText = newText
+            },
+            trailingIcon = {
+                IconButton(onClick = {
+                    isPasswordVisibility = !isPasswordVisibility
+                }) {
+                    Icon(painter = icon, contentDescription = "icon")
+                }
+            },
+            visualTransformation = if (isPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+        )
+    }
 }
 
 @Composable

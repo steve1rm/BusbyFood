@@ -29,19 +29,11 @@ fun LoginScreen() {
         .padding(12.dp)) {
 
         Spacer(modifier = Modifier.height(80.dp))
-        Text(text = "Email *", fontSize = 16.sp, fontWeight = FontWeight.Bold)
         EmailEntry { emailText ->
             emailEntered = emailText
             println("Email Entered: $emailEntered")
         }
         Spacer(modifier = Modifier.height(40.dp))
-        Text(
-            text = "Password *",
-            fontSize = 16.sp,
-            color = Color.Black,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center
-        )
         PasswordEntry()
         Spacer(modifier = Modifier.height(40.dp))
         ForgotPasswordLink()
