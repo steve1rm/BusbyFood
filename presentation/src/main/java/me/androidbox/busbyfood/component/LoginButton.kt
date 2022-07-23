@@ -25,7 +25,7 @@ fun LoginButton(
         ),
         onClick = { onLoginClicked() }) {
 
-        Text(text = text, color = textColor, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+        Text(text = text, color = textColor, fontSize = 20.sp, fontWeight = FontWeight.Bold)
     }
 }
 
@@ -33,7 +33,7 @@ fun LoginButton(
 @Preview
 fun PreviewLoginButton() {
     LoginButton(
-        text = "Login",
+        text = "LOGIN",
         textColor = Color.White,
         backgroundColor = Color.DarkGray,
         onLoginClicked = {}

@@ -25,13 +25,13 @@ import me.androidbox.busbyfood.R
 
 @Composable
 fun TheOneLoginButton(onLoginClicked: () -> Unit) {
-    Button(
-        modifier = Modifier.size(44.dp),
-        contentPadding = PaddingValues(0.dp),
+    IconButton(
+        modifier = Modifier
+            .size(44.dp)
+            .background(color = Color.Black, RoundedCornerShape(10.dp)),
         onClick = {
             onLoginClicked()
         },
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_t1_transparent),

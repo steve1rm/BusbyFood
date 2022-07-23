@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,13 +17,13 @@ import me.androidbox.busbyfood.R
 
 @Composable
 fun AppleLoginButton(onLoginClicked: () -> Unit) {
-    Button(
-        modifier = Modifier.size(44.dp),
-        contentPadding = PaddingValues(0.dp),
+    IconButton(
+        modifier = Modifier
+            .size(44.dp)
+            .background(color = Color.Black, shape = RoundedCornerShape(10.dp)),
         onClick = {
             onLoginClicked()
     },
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_apple_logo),

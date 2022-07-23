@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -20,14 +21,13 @@ import me.androidbox.busbyfood.R
 
 @Composable
 fun FacebookLoginButton(onLoginClicked: () -> Unit) {
-    Button(
+    IconButton(
         modifier = Modifier
-            .size(44.dp),
-        contentPadding = PaddingValues(0.dp),
+            .size(44.dp)
+            .background(color = Color.Blue, shape = RoundedCornerShape(10.dp)),
         onClick = {
             onLoginClicked()
         },
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue)
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_facebook_circle),

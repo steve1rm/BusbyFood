@@ -37,8 +37,16 @@ fun LoginScreen() {
         PasswordEntry()
         Spacer(modifier = Modifier.height(40.dp))
         ForgotPasswordLink()
+        Text(
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center,
+            text = "Error")
         Spacer(modifier = Modifier.height(24.dp))
-        LoginButton(text = "Login", textColor = Color.White, backgroundColor = Color.LightGray) {
+        LoginButton(
+            text = "LOGIN",
+            textColor = Color.White,
+            backgroundColor = Color.LightGray
+        ) {
             println("Email Entered: $emailEntered")
         }
         Spacer(modifier = Modifier.height(60.dp))
