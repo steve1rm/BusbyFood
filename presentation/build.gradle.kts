@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "me.androidbox.busbyfood"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 32
         versionCode = 1
         versionName = "1.0"
