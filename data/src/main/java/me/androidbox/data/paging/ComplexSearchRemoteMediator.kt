@@ -9,6 +9,7 @@ import me.androidbox.data.BuildConfig
 import me.androidbox.data.localstorage.FoodDatabase
 import me.androidbox.data.model.ComplexSearchModel
 import me.androidbox.data.model.ComplexSearchRemoteKey
+import me.androidbox.data.model.ResultModel
 import me.androidbox.data.network.FoodService
 import javax.inject.Inject
 
@@ -29,7 +30,7 @@ class ComplexSearchRemoteMediator @Inject constructor(
             val currentPage = when (loadType) {
                 LoadType.REFRESH -> {
                     val remoteKey = getRemoteKeyClosetToCurrentPosition(state)
-                    remoteKey?.nextPage?.minus(1) ?: 1
+                    remoteKey?.nextPage?.minus(10) ?: 10
                 }
 
                 LoadType.PREPEND -> {
@@ -55,8 +56,8 @@ class ComplexSearchRemoteMediator @Inject constructor(
             val response = foodService.fetchComplexSearch(BuildConfig.API, offset = currentPage)
             val endOfPaginationReached = response.results.isEmpty()
 
-            val previousPage = if (currentPage == 1) null else currentPage - 1
-            val nextPage = if (endOfPaginationReached) null else currentPage + 1
+            val previousPage = if (currentPage == 10) null else currentPage - 10
+            val nextPage = if (endOfPaginationReached) null else currentPage + 10
 
             foodDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
@@ -66,7 +67,7 @@ class ComplexSearchRemoteMediator @Inject constructor(
 
                 val listOfComplexRemoteKey = response.results.map { complexSearchModel ->
                     ComplexSearchRemoteKey(
-                        id = complexSearchModel.id,
+                        remoteId = complexSearchModel.id,
                         previousPage = previousPage,
                         nextPage = nextPage
                     )
@@ -101,8 +102,15 @@ class ComplexSearchRemoteMediator @Inject constructor(
     }
 
     private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, ComplexSearchModel>): ComplexSearchRemoteKey? {
+/*
         return state.lastItemOrNull()?.let { complexSearchModel ->
             complexSearchRemoteKeyDao.getComplexSearchRemoteKey(complexSearchModel.id)
         }
+*/
+
+        return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()
+            ?.let { search ->
+                complexSearchRemoteKeyDao.getComplexSearchRemoteKey(id = search.id)
+            }
     }
 }

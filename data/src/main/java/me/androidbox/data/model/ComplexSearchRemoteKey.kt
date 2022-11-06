@@ -6,8 +6,9 @@ import me.androidbox.data.utils.Constant
 
 @Entity(tableName = Constant.COMPLEX_SEARCH_REMOTE_KEYS_TABLE)
 data class ComplexSearchRemoteKey(
-    @PrimaryKey(autoGenerate = false)
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val remoteId: Int,
     val previousPage: Int?,
     val nextPage: Int?
 )
