@@ -3,14 +3,15 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("kotlinx-serialization")
 }
 
 android {
     compileSdk = 32
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 32
+        minSdk = 21
+        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -41,6 +42,8 @@ dependencies {
     implementation(libs.retrofit2.kotlin.coroutines.adapter)
     implementation(libs.converter.moshi)
     implementation(libs.logging.interceptor)
+    implementation(libs.paging.compose)
+    implementation(libs.room.paging)
 
     testImplementation(test.junit)
 }

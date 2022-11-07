@@ -15,6 +15,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Named
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -46,13 +47,14 @@ object NetworkModule {
 
     @Reusable
     @Provides
+    @Named("base_url")
     fun provideBaseUrl(@ApplicationContext context: Context): String {
         return context.getString(R.string.baseUrl)
     }
 
     @Reusable
     @Provides
-    fun provideRetrofit(baseUrl: String, okHttpClient: OkHttpClient): Retrofit {
+    fun provideRetrofit(@Named("base_url") baseUrl: String, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(okHttpClient)

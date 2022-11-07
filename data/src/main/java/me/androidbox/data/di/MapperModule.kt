@@ -4,7 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.androidbox.data.localstorage.ComplexSearchLocalModel
+import me.androidbox.data.model.ComplexSearchLocalModel
 import me.androidbox.data.mapper.MapperDataToDomain
 import me.androidbox.data.mapper.MapperDomainToData
 import me.androidbox.data.mapper.imp.MapperDataToDomainImp

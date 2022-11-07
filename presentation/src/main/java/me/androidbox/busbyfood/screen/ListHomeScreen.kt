@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.paging.compose.collectAsLazyPagingItems
 import me.androidbox.busbyfood.viewmodel.FoodListViewModel
 
 @Composable
@@ -17,7 +18,8 @@ fun ListHomeScreen(
     foodListViewModel: FoodListViewModel,
     navController: NavController
 ) {
-    foodListViewModel.fetchComplexSearch()
+   // foodListViewModel.fetchComplexSearch()
+    val listOfComplexSearchPaging = foodListViewModel.fetchComplexSearchPaging().collectAsLazyPagingItems()
 
     val listOfComplexSearch by foodListViewModel.complexSearchStateFlow.collectAsState()
     val rememberScaffoldState = rememberScaffoldState()
@@ -30,7 +32,7 @@ fun ListHomeScreen(
             }
         },
         content = {
-            ListComplexSearchContent(responseState = listOfComplexSearch, navController = navController)
+            ListComplexSearchContent(lazyPagingItem = listOfComplexSearchPaging, navController = navController)
         }
     )
 }
