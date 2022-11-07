@@ -8,6 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import me.androidbox.busbyfood.navigation.Navigation
 import me.androidbox.busbyfood.ui.theme.BusbyFoodTheme
 import me.androidbox.busbyfood.viewmodel.FoodListViewModel
+import me.androidbox.busbyfood.viewmodel.LoginScreenViewModel
 
 @AndroidEntryPoint
 class BusbyFoodActivity : ComponentActivity() {
@@ -15,6 +16,7 @@ class BusbyFoodActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val foodListViewModel by viewModels<FoodListViewModel>()
+        val loginScreenViewModel by viewModels<LoginScreenViewModel>()
 
         setContent {
             BusbyFoodTheme {
