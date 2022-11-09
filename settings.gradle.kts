@@ -69,6 +69,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         version("version.androidx.core-splashscreen", "_")
         version("version.androidx.navigation-compose", "_")
         version("version.androidx.paging", "_")
+        version("version.detekt-gradle-plugin", "_")
 
         library("core-kts", "androidx.core", "core-ktx").versionRef("version.androidx.core")
 
@@ -103,6 +104,7 @@ fun MutableVersionCatalogContainer.createLibs() {
         library("logging-interceptor", "com.squareup.okhttp3", "logging-interceptor").versionRef("version.okhttp3")
 
         library("coil-compose", "io.coil-kt", "coil-compose").versionRef("version.coil-kt")
+        library("detekt-gradle-plugin","io.gitlab.arturbosch.detekt", "detekt-gradle-plugin").versionRef("version.detekt-gradle-plugin")
 
         bundle("compose", listOf("ui", "material", "ui-tooling-preview", "activity-compose", "navigation-compose", "paging-compose"))
         bundle("dagger", listOf("dagger", "hilt-android", "hilt-android-compiler"))

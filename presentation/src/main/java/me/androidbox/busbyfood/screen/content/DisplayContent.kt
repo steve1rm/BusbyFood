@@ -24,7 +24,7 @@ fun DisplayContent(listOfComplexSearchEntity: List<ComplexSearchEntity>, navCont
                 imageUrl = complexSearchEntity.image,
                 title = complexSearchEntity.title,
                 navController = navController,
-                context = LocalContext.current
+                shouldDisplayGradient = false
             )
         }
     }

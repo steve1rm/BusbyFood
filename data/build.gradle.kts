@@ -4,10 +4,11 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("kotlinx-serialization")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 21
@@ -47,3 +48,5 @@ dependencies {
 
     testImplementation(test.junit)
 }
+
+// apply(plugin = "io.gitlab.arturbosch.detekt")
