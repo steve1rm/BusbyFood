@@ -1,7 +1,7 @@
 plugins {
     id("java-library")
     id("kotlin")
-    id("io.gitlab.arturbosch.detekt")
+//    id("io.gitlab.arturbosch.detekt")
 }
 
 java {
