@@ -19,8 +19,10 @@ buildscript {
 }
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id("io.gitlab.arturbosch.detekt") version "1.19.0"
+apply(plugin = "io.gitlab.arturbosch.detekt")
+
+subprojects {
+    apply(plugin = "io.gitlab.arturbosch.detekt")
 }
 
 tasks.register("clean", Delete::class) {
