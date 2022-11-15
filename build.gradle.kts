@@ -19,7 +19,9 @@ buildscript {
 }
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-apply(plugin = "io.gitlab.arturbosch.detekt")
+plugins {
+    id("io.gitlab.arturbosch.detekt") version("1.21.0")
+}
 
 subprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
