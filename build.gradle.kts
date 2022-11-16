@@ -1,3 +1,4 @@
+import io.gitlab.arturbosch.detekt.Detekt
 
 buildscript {
 
@@ -25,6 +26,10 @@ plugins {
 
 subprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
+
+    detekt {
+        config = files("${rootDir}/config/detekt/detekt.yml")
+    }
 }
 
 tasks.register("clean", Delete::class) {
